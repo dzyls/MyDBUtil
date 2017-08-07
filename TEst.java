@@ -14,10 +14,10 @@ public class TEst {
 
     @Test
     public void test(){
-
+        ConnClass son = null;
         try {
-            ConnClass son = new ConnClass();
-          Dog dog = new Dog(3,"zhang",1000);
+             son = new ConnClass();
+            Dog dog = new Dog(3,"zhang",1000);
 //          Update.updateObject(dog,son);
             Add.addObject(dog,son);
         } catch (SQLException e) {
@@ -27,6 +27,12 @@ public class TEst {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            try {
+                son.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
 

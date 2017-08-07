@@ -59,4 +59,16 @@ public class ConnClass {
             connection.close();
         }
     }
+
+    public void release(Connection conn,Statement stat ,ResultSet set) throws SQLException {
+        if(set!=null&&!set.isClosed()){
+            set.close();
+        }
+        if (stat!=null&&!set.isClosed()) {
+            stat.close();
+        }
+        if (conn!=null&&!conn.isClosed()) {
+            conn.close();
+        }
+    }
 }
